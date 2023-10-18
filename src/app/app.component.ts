@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   consultar() {
-    this.http.get("http://localhost:4000/mi-api-rest/consultarArchivo").subscribe((data) => {this.datos = data as any[]; console.log(this.datos);}, (error => {console.log(error);}));
+    this.http.get("http://3.144.251.41:4000/mi-api-rest/consultarArchivo").subscribe((data) => {this.datos = data as any[]; console.log(this.datos);}, (error => {console.log(error);}));
   }
 
   onFileSelected() {
@@ -29,7 +29,7 @@ export class AppComponent {
       const formData = new FormData();
       formData.append('nameArchivo', this.selectedFile, this.selectedFile.name);
 
-      this.http.post('http://localhost:4000/mi-api-rest/RegistrarArchivo', formData)
+      this.http.post('http://3.144.251.41:4000/mi-api-rest/RegistrarArchivo', formData)
         .subscribe(
           (response) => {
             console.log('Archivo subido exitosamente:', response);
