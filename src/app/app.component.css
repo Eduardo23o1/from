@@ -1,0 +1,91 @@
+/* file-upload.component.css */
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="file"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+/* tabla-estilos.css */
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  /* Estilo para los encabezados de las columnas */
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  /* Estilo para las filas impares */
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para las filas pares */
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  /* Estilo para las celdas de datos */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Estilo para las celdas al hacer hover */
+  td:hover {
+    background-color: #e3e3e3;
+    cursor: pointer;
+  }
+  
+  /* Estilo para resaltar las celdas seleccionadas */
+  td.selected {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  /* Estilo para la tabla al enfocar */
+  table:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+  }
+    
