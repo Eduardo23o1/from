@@ -1,26 +1,15 @@
-# Usa la imagen base de Node.js
-FROM node:18.10
-
-# Instala el Angular CLI
-RUN npm install -g @angular/cli
-
-# Establece el directorio de trabajo dentro del contenedor
+FROM node:19-alpine3.15 as dev-deps
 WORKDIR /app
-
-# Copia el archivo package.json y package-lock.json para instalar las dependencias
-COPY package*.json ./
-
-# Instala las dependencias
+COPY package.json package.json
 RUN npm install
 
-# Copia el resto de la aplicación
-COPY . .
+FROM node:19-alpine3.15 as builder
+WORKDIR /app
+COPY --from=dev-deps /app/node_modules /app/node_modules
+COPY . . 
+RUN npm run build
 
-# Construye la aplicación en modo producción
-RUN ng build
-
-# Expón el puerto en el que se ejecutará la aplicación
-EXPOSE 4200
-
-# Comando para iniciar la aplicación
-CMD ["npm", "start"]
+FROM nginx:1.21.3 as prod
+EXPOSE 80
+COPY --from=builder /app/dist/from /usr/share/nginx/html
+CMD ["nginx", "-g", "daemon off;"]
